@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>notdanilo</title>
+    <style>
+      html, body {
+        margin: 0px;
+        height: 100%;
+      }
+      #container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: monospace;
+        font-size: 5vw;
+        font-weight: bold;
+        text-shadow: 0.1vw 0.1vw 0.4vw black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">&nbsp;danilo &nbsp;= !danilo&nbsp;</div>
+    <script>
+      var container = document.getElementById("container");
+      var colors = [ "black", "white" ];
+      var i = 0;
+      setInterval(function() {
+        var not = ["&nbsp;", "!"];
+        var rand = function(not) { return not[Math.floor(Math.random() * 10000000) % 2]; };
+        var text = rand(not) + "danilo " + rand(not) + "= " + rand(not) + "danilo&nbsp;";
+        container.innerHTML = text;
+        container.style.backgroundColor = colors[i];
+        i = (i + 1) % 2;
+        container.style.color = colors[i];
+        container.style.textShadow = "0.1px 0.1px 0.4vw " + colors[i];
+      }, 1000);
+    </script>
+  </body>
+</html>
